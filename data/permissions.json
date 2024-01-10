@@ -1,0 +1,22 @@
+[
+	{
+		"key": "Admin",
+		"value": "admin",
+		"description": "Allows a user to do anything. This is a dangerous permission to grant."
+	},
+	{
+		"key": "ManageQuiz",
+		"value": "manage quiz",
+		"description": "Allows a user to manage quiz-related tasks, such as questions and tags."
+	},
+	{
+		"key": "ManageUser",
+		"value": "manage user",
+		"description": "Allows a user to manage other users."
+	},
+	{
+		"key": "ManageAccount",
+		"value": "manage account",
+		"description": "Allows a user to manage account settings."
+	}
+]

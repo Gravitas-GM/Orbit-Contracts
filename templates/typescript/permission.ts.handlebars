@@ -1,0 +1,28 @@
+export namespace Permission {
+	{{#each permissions}}
+	{{#if this.description}}// {{this.description}}{{/if}}
+	export const {{this.key}} = "{{this.value}}";
+	
+	{{/each}}
+
+	export function isAllowed(permission: Permission, permissions: string[]): boolean {
+		return permissions.includes(Admin) || permissions.includes(permission);
+	}
+
+	export function getDescription(permission: Permission): string {
+		switch (permission) {
+			{{#each permissions}}
+			{{#if this.description}}
+			case Permission.{{this.key}}:
+				return "{{this.description}}";
+			{{/if}}
+			{{/each}}
+		}
+
+		return "No description provided.";
+	}
+}
+
+export type Permission = {{#each permissions ~}}
+	{{#if @index}} | {{/if}}typeof Permission.{{this.key}}
+{{~/each}};

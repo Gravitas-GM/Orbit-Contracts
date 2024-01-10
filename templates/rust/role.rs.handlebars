@@ -1,0 +1,9 @@
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize, PartialEq, Eq, Debug)]
+pub enum Role {
+	{{#each roles}}
+	#[serde(rename = "{{this.value}}")]
+	{{this.key}},
+	{{/each}}
+}

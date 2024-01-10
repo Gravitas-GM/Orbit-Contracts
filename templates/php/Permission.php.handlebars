@@ -1,0 +1,13 @@
+<?php
+	namespace Gravitas\Orbit\Contracts;
+
+	enum Permission: string {
+		{{#each permissions}}
+		{{#if this.description}}// {{this.description}}{{/if}}
+		case {{this.key}} = "{{this.value}}";
+
+		{{/each}}
+		public function isAllowed(Permission $permission, array $permissions): bool {
+			return in_array(static::Admin, $permissions) || in_array($permission, $permissions);
+		}
+	}

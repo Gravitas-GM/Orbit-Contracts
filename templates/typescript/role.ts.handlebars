@@ -1,0 +1,11 @@
+export namespace Role {
+	{{#each roles}}
+	{{#if this.description}}// {{this.description}}{{/if}}
+	export const {{this.key}} = "{{this.value}}";
+	
+	{{/each}}
+}
+
+export type Permission = {{#each roles ~}}
+	{{#if @index}} | {{/if}}typeof Role.{{this.key}}
+{{~/each}};

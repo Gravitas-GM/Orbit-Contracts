@@ -1,0 +1,17 @@
+[
+	{
+		"key": "Admin",
+		"value": "ROLE_ADMIN",
+		"description": "An application-wide admin; can do anything, in any account."
+	},
+	{
+		"key": "User",
+		"value": "ROLE_USER",
+		"description": "A regular user of the application."
+	},
+	{
+		"key": "Service",
+		"value": "ROLE_SERVICE",
+		"description": "An automated service user; like an Admin, can do anything in any account."
+	}
+]

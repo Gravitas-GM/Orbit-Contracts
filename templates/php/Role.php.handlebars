@@ -1,0 +1,11 @@
+<?php
+	namespace Gravitas\Orbit\Contracts;
+
+	final class Role {
+		{{#each roles}}
+		{{#if this.description}}// {{this.description}}{{/if}}
+		public const {{this.key}} = "{{this.value}}";
+
+		{{/each}}
+		private function __construct() {}
+	}
