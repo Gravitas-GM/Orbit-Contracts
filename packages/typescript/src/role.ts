@@ -10,4 +10,4 @@ export namespace Role {
 	
 }
 
-export type Permission = typeof Role.Admin | typeof Role.User | typeof Role.Service;
+export type Role = typeof Role.Admin | typeof Role.User | typeof Role.Service;
