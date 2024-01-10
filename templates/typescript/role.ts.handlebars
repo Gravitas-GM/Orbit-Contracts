@@ -6,6 +6,6 @@ export namespace Role {
 	{{/each}}
 }
 
-export type Permission = {{#each roles ~}}
+export type Role = {{#each roles ~}}
 	{{#if @index}} | {{/if}}typeof Role.{{this.key}}
 {{~/each}};
