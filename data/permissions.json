@@ -18,5 +18,10 @@
 		"key": "ManageAccount",
 		"value": "manage account",
 		"description": "Allows a user to manage account settings."
+	},
+	{
+		"key": "ManageSurvey",
+		"value": "manage survey",
+		"description": "Allows a user to manage survey settings for the account."
 	}
 ]

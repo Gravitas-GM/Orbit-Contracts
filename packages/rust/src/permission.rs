@@ -11,6 +11,8 @@ pub enum Permission {
 	ManageUser,
 	#[serde(rename = "manage account")]
 	ManageAccount,
+	#[serde(rename = "manage survey")]
+	ManageSurvey,
 }
 
 impl Permission {
