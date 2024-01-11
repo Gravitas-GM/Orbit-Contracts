@@ -31,7 +31,7 @@ function push() {
 	if [[ $? != 0 ]]; then
 		read -p "The remote $remote_name does not exist; would you like to add it? (Y/n) " -r
 
-		if ! [[ "${REPLY,,}" = "y" ]]; then
+		if [[ "${REPLY,,}" != "y" ]]; then
 			echo "Remote $remote_name not found and add denied, skipping push."
 			echo
 
