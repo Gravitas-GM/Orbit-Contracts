@@ -1,0 +1,27 @@
+[
+    {
+        "field": "id",
+        "kind": "u32"
+    },
+    {
+        "field": "account",
+        "kind": "HubAccount"
+    },
+    {
+        "field": "firstName",
+        "kind": "string"
+    },
+    {
+        "field": "lastName",
+        "kind": "string"
+    },
+    {
+        "field": "emailAddress",
+        "kind": "string"
+    },
+    {
+        "field": "permissions",
+        "kind": "array",
+        "innerKind": "Permission"
+    }
+]

@@ -2,8 +2,8 @@
     namespace Gravitas\Orbit\Contracts\Clients\Hub\Models;
 
     class HubAccount {
-		public int $id;
+        {{#each fields}}
+        {{~php_field this}}
 
-		public string $name;
-
+        {{/each}}
     }
