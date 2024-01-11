@@ -33,16 +33,20 @@ impl Config {
     }
 }
 
-pub fn build(
-    contracts: Vec<Contract>,
-    languages: Vec<Language>,
+pub fn build<'a, C, L>(
+    contracts: C,
+    languages: L,
     config: Config,
-) -> Result<(), Error> {
+) -> Result<(), Error>
+where
+    C: IntoIterator<Item = &'a Contract> + Copy,
+    L: IntoIterator<Item = &'a Language> + Copy,
+{
     debug!("{:?}", config);
 
     for contract in contracts {
-        for lang in &languages {
-            build_contract(&contract, lang, &config)?;
+        for lang in languages {
+            build_contract(contract, lang, &config)?;
         }
     }
 

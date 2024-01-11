@@ -18,5 +18,5 @@ fn main() -> Result<(), Error> {
     let contracts = cli.contract.take().unwrap_or_else(Contract::all);
     let languages = cli.lang.take().unwrap_or_else(Language::all);
 
-    template::build(contracts, languages, cli.into())
+    template::build(&contracts, &languages, cli.into())
 }
