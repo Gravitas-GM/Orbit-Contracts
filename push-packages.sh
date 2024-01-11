@@ -23,7 +23,7 @@ fi
 
 # Usage: push <subtree-path> <remote-name>
 function push() {
-    echo "Pushing $0 to $1... "
+    echo "Pushing $1 to $2... "
 
     split_hash=`git splitsh --prefix "$1" 2>/dev/null`
     git push "$2" "$split_hash":main
