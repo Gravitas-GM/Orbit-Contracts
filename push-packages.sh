@@ -26,7 +26,7 @@ function push() {
 	local remote_name="$2"
 	local remote_url="$3"
 
-	git branch | grep "$remote_name" --quiet
+	git remote | grep "$remote_name" --quiet
 
 	if [[ $? != 0 ]]; then
 		read -p "The remote $remote_name does not exist; would you like to add it as $remote_url? [y/N] " -r
