@@ -24,7 +24,7 @@ fi
 # Usage: push <subtree-path> <remote-name>
 function push() {
 
-    split_hash=`git splitsh "$1"`
+    split_hash=`git splitsh --prefix "$1"`
     git push "$2" "$split_hash":main
 }
 
