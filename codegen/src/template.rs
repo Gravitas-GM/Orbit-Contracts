@@ -33,11 +33,7 @@ impl Config {
     }
 }
 
-pub fn build<'a, C, L>(
-    contracts: C,
-    languages: L,
-    config: Config,
-) -> Result<(), Error>
+pub fn build<'a, C, L>(contracts: C, languages: L, config: Config) -> Result<(), Error>
 where
     C: IntoIterator<Item = &'a Contract> + Copy,
     L: IntoIterator<Item = &'a Language> + Copy,
