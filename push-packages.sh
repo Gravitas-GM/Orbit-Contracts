@@ -42,10 +42,10 @@ function push() {
 		echo "Added $remote_url as $remote_name."
 	fi
 
-    echo "Pushing $1 to $2... "
+    echo "Pushing $path to $remote_name... "
 
-    split_hash=`git splitsh --prefix "$1" 2>/dev/null`
-    git push "$2" "$split_hash":main
+    split_hash=`git splitsh --prefix "$path" 2>/dev/null`
+    git push "$remote_name" "$split_hash":main
 
     echo
 }
