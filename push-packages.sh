@@ -20,9 +20,25 @@ if [[ "${branch}" != "main" ]]; then
     exit
 fi
 
-
-# Usage: push <subtree-path> <remote-name>
+# Usage: push <subtree-path> <remote-name> <remote-url>
 function push() {
+	local path="$1"
+	local remote_name="$2"
+	local remote_url="$3"
+
+	git branch | grep "$remote_name" --quiet
+
+	if [[ $? != 0 ]]; then
+		read -p "The remote $remote_name does not exist; would you like to add it? (Y/n) " -r
+
+		if ! [[ "${REPLY,,}" = "y" ]]; then
+			echo "Remote $remote_name not found and add denied, skipping push."
+			echo
+
+			return 1
+		fi
+	fi
+
     echo "Pushing $1 to $2... "
 
     split_hash=`git splitsh --prefix "$1" 2>/dev/null`
@@ -31,6 +47,6 @@ function push() {
     echo
 }
 
-push packages/php package-php
+push packages/php package-php https://github.com/Gravitas-GM/Orbit-PHP-Contracts
 # push packages/rust package-rust
 # push packages/typescript package-typescript
