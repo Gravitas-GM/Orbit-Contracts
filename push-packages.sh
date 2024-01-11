@@ -29,7 +29,7 @@ function push() {
 	git branch | grep "$remote_name" --quiet
 
 	if [[ $? != 0 ]]; then
-		read -p "The remote $remote_name does not exist; would you like to add it? (Y/n) " -r
+		read -p "The remote $remote_name does not exist; would you like to add it as $remote_url? [y/N] " -r
 
 		if [[ "${REPLY,,}" != "y" ]]; then
 			echo "Remote $remote_name not found and add denied, skipping push."
