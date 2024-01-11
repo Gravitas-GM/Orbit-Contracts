@@ -14,7 +14,7 @@ pub enum Language {
 }
 
 impl Language {
-    pub fn get_template_path(&self, contract: &Contract) -> &'static Path {
+    pub fn get_template_path(&self, contract: &Contract) -> Option<&'static Path> {
         match self {
             Self::Php => php::get_template_path(contract),
             Self::Rust => rust::get_template_path(contract),
