@@ -37,6 +37,8 @@ function push() {
 
 			return 1
 		fi
+
+		git remote add "$remote_name" "$remote_url"
 	fi
 
     echo "Pushing $1 to $2... "
