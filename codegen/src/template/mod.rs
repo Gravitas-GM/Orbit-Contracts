@@ -35,11 +35,7 @@ impl Config {
     }
 }
 
-pub fn build<'a, C, L>(contracts: C, languages: L, config: Config) -> Result<(), Error>
-where
-    C: IntoIterator<Item = &'a Contract> + Copy,
-    L: IntoIterator<Item = &'a Language> + Copy,
-{
+pub fn build(contracts: &[Contract], languages: &[Language], config: Config) -> Result<(), Error> {
     debug!("{:?}", config);
 
     let mut handlebars = Handlebars::new();
