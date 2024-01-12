@@ -1,4 +1,4 @@
-use crate::contract::{FieldDescriptor, FieldKind};
+use crate::contract::context::{FieldDescriptor, FieldKind};
 use handlebars::{
     Context, Handlebars, Helper, Output, RenderContext, RenderError, RenderErrorReason,
 };

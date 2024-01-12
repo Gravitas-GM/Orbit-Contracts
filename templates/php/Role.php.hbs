@@ -2,7 +2,7 @@
 	namespace Gravitas\Orbit\Contracts;
 
 	final class Role {
-		{{#each roles}}
+		{{#each variants}}
 		{{#if this.description}}// {{this.description}}{{/if}}
 		public const {{this.key}} = "{{this.value}}";
 

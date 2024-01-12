@@ -5,9 +5,10 @@ pub fn get_template_path(contract: &Contract) -> Option<&'static Path> {
     use Contract::*;
 
     match contract {
-        Permission => Some(Path::new("rust/permission.rs.handlebars")),
-        Role => Some(Path::new("rust/role.rs.handlebars")),
+        Permission => Some(Path::new("rust/permission.rs.hbs")),
+        Role => Some(Path::new("rust/role.rs.hbs")),
         HubUser => None,
         HubAccount => None,
+        WeekDay => None,
     }
 }

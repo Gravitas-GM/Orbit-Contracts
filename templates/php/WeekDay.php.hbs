@@ -1,0 +1,8 @@
+<?php
+	namespace Gravitas\Orbit\Contracts;
+
+	enum WeekDay: int {
+		{{#each variants}}
+		case {{key}} = {{value}};
+		{{/each}}
+	}

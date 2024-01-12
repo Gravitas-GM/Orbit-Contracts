@@ -21,11 +21,4 @@ impl Language {
             Self::Typescript => typescript::get_template_path(contract),
         }
     }
-
-    pub fn all() -> Vec<Self> {
-        use Language::*;
-        const ITEMS: [Language; 3] = [Php, Rust, Typescript];
-
-        ITEMS.to_vec()
-    }
 }

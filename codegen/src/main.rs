@@ -2,7 +2,7 @@ use crate::cli::CliArgs;
 use crate::contract::Contract;
 use crate::error::Error;
 use crate::lang::Language;
-use clap::Parser;
+use clap::{Parser, ValueEnum};
 
 mod cli;
 mod contract;
@@ -15,8 +15,15 @@ fn main() -> Result<(), Error> {
 
     let mut cli = CliArgs::parse();
 
-    let contracts = cli.contract.take().unwrap_or_else(Contract::all);
-    let languages = cli.lang.take().unwrap_or_else(Language::all);
+    let contracts = cli.contract.take();
+    let contracts = contracts
+        .as_deref()
+        .unwrap_or_else(Contract::value_variants);
 
-    template::build(&contracts, &languages, cli.into())
+    let languages = cli.lang.take();
+    let languages = languages
+        .as_deref()
+        .unwrap_or_else(Language::value_variants);
+
+    template::build(contracts, languages, cli.into())
 }

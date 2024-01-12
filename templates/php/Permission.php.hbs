@@ -2,7 +2,7 @@
 	namespace Gravitas\Orbit\Contracts;
 
 	enum Permission: string {
-		{{#each permissions}}
+		{{#each variants}}
 		{{#if this.description}}// {{this.description}}{{/if}}
 		case {{this.key}} = "{{this.value}}";
 

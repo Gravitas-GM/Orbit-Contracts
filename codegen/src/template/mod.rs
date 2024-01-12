@@ -83,14 +83,14 @@ fn create_output_file(template_path: &'static Path, output_dir: &Path) -> Result
     Ok(File::create(path)?)
 }
 
-/// Template paths are in the format "<lang>/<template-dir?>/<template>.<extension>.handlebars".
+/// Template paths are in the format "<lang>/<template-dir?>/<template>.<extension>.hbs".
 /// Output paths should be in the format "<lang>/src/<template-dir?>/<template>.<extension>".
 ///
 /// To convert that to an output path, we need to take the following steps:
 ///     1) Extract the "<lang>" component from the path, which should always be the path's first element
 ///     2) Collect the remaining elements into the path's tail, which consists of the "<template-dir>" (if there is one)
-///        and the "<template>.<extension>.handlebars" compound component.
-///     3) Extract the stem and its parent path from the tail.
+///        and the "<template>.<extension>.hbs" compound component.
+///     3) Extract the stem (base name before the final '.') and its parent path from the tail.
 ///     4) Join the root element, the literal path "src/", the parent component, and the stem component to form the
 ///        complete output path
 fn to_output_path(template_path: &Path) -> Option<PathBuf> {
