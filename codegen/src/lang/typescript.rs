@@ -7,8 +7,6 @@ pub fn get_template_path(contract: &Contract) -> Option<&'static Path> {
     match contract {
         Permission => Some(Path::new("typescript/permission.ts.hbs")),
         Role => Some(Path::new("typescript/role.ts.hbs")),
-        WeekDay => Some(Path::new("typescript/week-day.ts.hbs")),
-        HubUser => None,
-        HubAccount => None,
+        WeekDay | HubUser | HubAccount => None,
     }
 }
