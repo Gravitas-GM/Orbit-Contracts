@@ -3,16 +3,6 @@ use std::borrow::Borrow;
 
 #[derive(Serialize, Deserialize, PartialEq, Eq, Debug)]
 pub enum Permission {
-	#[serde(rename = "admin")]
-	Admin,
-	#[serde(rename = "manage quiz")]
-	ManageQuiz,
-	#[serde(rename = "manage user")]
-	ManageUser,
-	#[serde(rename = "manage account")]
-	ManageAccount,
-	#[serde(rename = "manage survey")]
-	ManageSurvey,
 }
 
 impl Permission {
