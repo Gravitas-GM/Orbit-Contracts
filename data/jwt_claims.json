@@ -1,0 +1,32 @@
+[
+    {
+        "key": "Id",
+        "value": "id",
+        "comment": "The ID of the user identified by the token; not present for service users."
+    },
+    {
+        "key": "Expiration",
+        "value": "exp",
+        "comment": "A unix timestamp indicating when the token is no longer valid."
+    },
+    {
+        "key": "IssuedAt",
+        "value": "iat",
+        "comment": "A unix timestamp indicating when the token was generated."
+    },
+    {
+        "key": "NotBefore",
+        "value": "nbf",
+        "comment": "A unix timestamp indicating when the token becomes valid."
+    },
+    {
+        "key": "Account",
+        "value": "accountId",
+        "comment": "The ID of the account the user belongs to; not present for service users."
+    },
+    {
+        "key": "Permissions",
+        "value": "permissions",
+        "comment": "An array of permission strings indicating what actions the user may perform; not present for service users."
+    }
+]

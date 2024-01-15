@@ -13,16 +13,20 @@ pub enum Contract {
     HubUser,
     HubAccount,
     WeekDay,
+    JwtClaim,
 }
 
 impl Contract {
     pub fn build_context(&self, root: &Path) -> Result<TemplateContext, Error> {
+        use Contract::*;
+
         match self {
-            Self::Permission => for_enum(root.join("permissions.json")),
-            Self::Role => for_enum(root.join("roles.json")),
-            Self::HubUser => for_struct(root.join("clients/hub/models/hub_user.json")),
-            Self::HubAccount => for_struct(root.join("clients/hub/models/hub_account.json")),
-            Self::WeekDay => for_enum(root.join("week_day.json")),
+            Permission => for_enum(root.join("permissions.json")),
+            Role => for_enum(root.join("roles.json")),
+            HubUser => for_struct(root.join("clients/hub/models/hub_user.json")),
+            HubAccount => for_struct(root.join("clients/hub/models/hub_account.json")),
+            WeekDay => for_enum(root.join("week_day.json")),
+            JwtClaim => for_enum(root.join("jwt_claims.json")),
         }
     }
 }

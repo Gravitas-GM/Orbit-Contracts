@@ -5,6 +5,7 @@ use handlebars::{
 
 pub fn register(handlebars: &mut Handlebars) {
     handlebars.register_helper("php_field", Box::new(php_field));
+    handlebars.register_helper("comment", Box::new(comment));
 }
 
 fn php_field(
@@ -33,6 +34,33 @@ fn php_field(
     }
 
     write!(out, "\t\tpublic {kind} ${};", descriptor.field)?;
+
+    Ok(())
+}
+
+/// Renders the `<prefix>` argument, followed by the first item in `<...content_options>` that is `Some`.
+/// Usage: {{#comment <prefix> <...content_options>}}
+fn comment(
+    h: &Helper,
+    _: &Handlebars,
+    _: &Context,
+    _: &mut RenderContext,
+    out: &mut dyn Output,
+) -> Result<(), RenderError> {
+    let comment_prefix: String = h
+        .param(0)
+        .and_then(|param| serde_json::from_value(param.value().clone()).ok())
+        .ok_or(RenderErrorReason::ParamNotFoundForIndex("comment", 0))?;
+
+    for (index, param) in h.params().iter().skip(1).enumerate() {
+        let content: Option<String> = serde_json::from_value(param.value().clone())
+            .map_err(|_| RenderErrorReason::ParamNotFoundForIndex("comment", index))?;
+
+        if let Some(content) = content {
+            write!(out, "{comment_prefix} {content}")?;
+            break;
+        }
+    }
 
     Ok(())
 }

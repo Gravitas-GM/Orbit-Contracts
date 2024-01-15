@@ -40,6 +40,7 @@ where
 pub struct EnumDescriptor {
     key: String,
     value: Value,
+    comment: Option<String>,
     description: Option<String>,
 }
 
