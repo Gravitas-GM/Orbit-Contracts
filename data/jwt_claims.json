@@ -20,6 +20,11 @@
         "comment": "A unix timestamp indicating when the token becomes valid."
     },
     {
+        "key": "UserIdentifier",
+        "value": "userIdentifier",
+        "comment": "A unique identifier for a user, such as an email address for regular users or a service's name for service users."
+    },
+    {
         "key": "Account",
         "value": "accountId",
         "comment": "The ID of the account the user belongs to; not present for service users."
@@ -28,5 +33,10 @@
         "key": "Permissions",
         "value": "permissions",
         "comment": "An array of permission strings indicating what actions the user may perform; not present for service users."
+    },
+    {
+        "key": "Roles",
+        "value": "roles",
+        "comment": "An array of firewall roles indicating what app-level actions a user may perform."
     }
 ]
