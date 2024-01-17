@@ -52,9 +52,15 @@ fn comment(
         .and_then(|param| serde_json::from_value(param.value().clone()).ok())
         .ok_or(RenderErrorReason::ParamNotFoundForIndex("comment", 0))?;
 
-    for (index, param) in h.params().iter().skip(1).enumerate() {
-        let content: Option<String> = serde_json::from_value(param.value().clone())
-            .map_err(|_| RenderErrorReason::ParamNotFoundForIndex("comment", index))?;
+    for param in h.params().iter().skip(1) {
+        let content: Option<String> =
+            serde_json::from_value(param.value().clone()).map_err(|_| {
+                RenderErrorReason::ParamTypeMismatchForName(
+                    "comment",
+                    "...content_options".to_string(),
+                    "Option<String>".to_string(),
+                )
+            })?;
 
         if let Some(content) = content {
             write!(out, "{comment_prefix} {content}")?;
