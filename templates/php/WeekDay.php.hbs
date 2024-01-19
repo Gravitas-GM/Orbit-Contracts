@@ -2,6 +2,8 @@
 	namespace Gravitas\Orbit\Contracts;
 
 	enum WeekDay: int {
+		public const FORMAT_CHAR = 'w';
+
 		{{#each variants}}
 		case {{key}} = {{value}};
 		{{/each}}
