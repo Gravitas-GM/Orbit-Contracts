@@ -12,6 +12,7 @@ pub enum Contract {
     Role,
     HubUser,
     HubAccount,
+    HubDepartment,
     WeekDay,
     JwtClaim,
 }
@@ -25,6 +26,7 @@ impl Contract {
             Role => for_enum(root.join("roles.json")),
             HubUser => for_struct(root.join("clients/hub/models/hub_user.json")),
             HubAccount => for_struct(root.join("clients/hub/models/hub_account.json")),
+            HubDepartment => for_struct(root.join("clients/hub/models/hub_department.json")),
             WeekDay => for_enum(root.join("week_day.json")),
             JwtClaim => for_enum(root.join("jwt_claims.json")),
         }

@@ -23,5 +23,10 @@
         "field": "permissions",
         "kind": "array",
         "innerKind": "\\Gravitas\\Orbit\\Contracts\\Permission"
-    }
+    },
+	{
+		"field": "department",
+		"kind": "HubDepartment",
+		"nullable": true
+	}
 ]

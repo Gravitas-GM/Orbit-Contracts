@@ -49,6 +49,9 @@ pub struct FieldDescriptor {
     pub field: String,
     pub kind: String,
 
+    #[serde(default)]
+    pub nullable: bool,
+
     #[serde(rename = "innerKind")]
     pub inner_kind: Option<String>,
 }

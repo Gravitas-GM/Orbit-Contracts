@@ -1,0 +1,19 @@
+[
+	{
+		"field": "id",
+		"kind": "u32"
+	},
+	{
+		"field": "name",
+		"kind": "string"
+	},
+	{
+		"field": "allowSplitReporting",
+		"kind": "bool"
+	},
+	{
+		"field": "members",
+		"kind": "array",
+		"innerKind": "HubUser"
+	}
+]

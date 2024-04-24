@@ -30,10 +30,27 @@ fn php_field(
     };
 
     if let Some(doc_kind) = doc_kind {
+        let doc_kind = if descriptor.nullable {
+            format!("{doc_kind}|null")
+        } else {
+            doc_kind
+        };
+
         write!(out, include_str!("./php_field_doc_format.txt"), doc_kind)?;
     }
 
-    write!(out, "\t\tpublic {kind} ${};", descriptor.field)?;
+    let field_kind = if descriptor.nullable {
+        Some(format!("?{kind}"))
+    } else {
+        None
+    };
+
+    write!(
+        out,
+        "\t\tpublic {} ${};",
+        field_kind.as_deref().unwrap_or(kind),
+        descriptor.field
+    )?;
 
     Ok(())
 }
