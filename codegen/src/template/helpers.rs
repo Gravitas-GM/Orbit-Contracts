@@ -27,6 +27,8 @@ fn php_field(
         FieldKind::U32 => ("int", None),
         FieldKind::Array(inner) => ("array", inner.map(|v| format!("{v}[]"))),
         FieldKind::Class(inner) => (inner, None),
+        FieldKind::Date => ("\\DateTimeImmutable", None),
+        FieldKind::Constants(inner) => ("string", Some(inner.to_owned()))
     };
 
     if let Some(doc_kind) = doc_kind {

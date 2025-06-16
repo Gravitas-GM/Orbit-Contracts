@@ -3,6 +3,8 @@
 
 	use Gravitas\Orbit\Contracts\Clients\AbstractClient;
 	use Gravitas\Orbit\Contracts\Clients\Hub\Models\HubAccount;
+	use Gravitas\Orbit\Contracts\Clients\Hub\Models\HubFeedEntry;
+	use Gravitas\Orbit\Contracts\Clients\Hub\Models\HubFeedEntryPayload;
 	use Gravitas\Orbit\Contracts\Clients\Hub\Models\HubUser;
 	use Gravitas\Orbit\Contracts\Clients\ProjectionInterface;
 	use Gravitas\Orbit\Contracts\Clients\QueryInterface;
@@ -82,5 +84,21 @@
 				return null;
 
 			return $this->deserialize(HubAccount::class, $response);
+		}
+
+		/**
+		 * @param HubFeedEntryPayload $payload
+		 *
+		 * @return HubFeedEntry
+		 * @throws ExceptionInterface {@see static::deserialize()}
+		 */
+		public function createFeedEntry(HubFeedEntryPayload $payload): HubFeedEntry {
+			$response = $this->client->request(
+				static::METHOD_PUT,
+				'/feed',
+				$this->buildOptions(payload: $payload),
+			);
+
+			return $this->deserialize(HubFeedEntry::class, $response);
 		}
 	}

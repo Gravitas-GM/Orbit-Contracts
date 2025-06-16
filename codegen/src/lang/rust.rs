@@ -7,6 +7,14 @@ pub fn get_template_path(contract: &Contract) -> Option<&'static Path> {
     match contract {
         Permission => Some(Path::new("rust/permission.rs.hbs")),
         Role => Some(Path::new("rust/role.rs.hbs")),
-        HubUser | HubAccount | HubDepartment | WeekDay | JwtClaim => None,
+        HubUser
+        | HubAccount
+        | HubDepartment
+        | HubFeedEntry
+        | HubFeedEntryPayload
+        | HubFeedEntryRecipientPayload
+        | WeekDay
+        | JwtClaim
+        | FeedRecipientKind => None,
     }
 }

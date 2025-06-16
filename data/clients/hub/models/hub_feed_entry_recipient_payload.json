@@ -1,0 +1,10 @@
+[
+    {
+        "field": "kind",
+        "kind": "string"
+    },
+    {
+        "field": "id",
+        "kind": "u32"
+    }
+]

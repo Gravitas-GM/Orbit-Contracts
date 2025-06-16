@@ -62,6 +62,8 @@ pub enum FieldKind<'a> {
     U32,
     Array(Option<&'a str>),
     Class(&'a str),
+    Date,
+    Constants(&'a str),
 }
 
 impl<'a> FieldKind<'a> {
@@ -72,6 +74,13 @@ impl<'a> FieldKind<'a> {
             "string" => Self::String,
             "u32" => Self::U32,
             "array" => Self::Array(descriptor.inner_kind.as_deref()),
+            "date" => Self::Date,
+            "constants" => Self::Constants(
+                descriptor
+                    .inner_kind
+                    .as_deref()
+                    .expect("innerKind is required for constant types"),
+            ),
             _ => Self::Class(descriptor.kind.as_str()),
         }
     }

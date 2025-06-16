@@ -13,8 +13,8 @@
 		public string $emailAddress;
 
 		/**
-		* @var \Gravitas\Orbit\Contracts\Permission[]
-		*/
+		 * @var \Gravitas\Orbit\Contracts\Permission[]
+		 */
 		public array $permissions;
 
 		public ?HubDepartment $department;

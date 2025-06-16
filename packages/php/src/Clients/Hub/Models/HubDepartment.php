@@ -9,8 +9,8 @@
 		public bool $allowSplitReporting;
 
 		/**
-		* @var HubUser[]
-		*/
+		 * @var HubUser[]
+		 */
 		public array $members;
 
 	}

@@ -1,0 +1,11 @@
+<?php
+	namespace Gravitas\Orbit\Contracts;
+
+	final class FeedRecipientKind {
+		{{#each variants}}
+		{{comment "//" this.comment this.description}}
+		public const {{this.key}} = "{{this.value}}";
+
+		{{/each}}
+		private function __construct() {}
+	}

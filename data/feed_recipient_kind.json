@@ -1,0 +1,17 @@
+[
+    {
+        "key": "User",
+        "value": "user",
+        "description": "A single, regular user"
+    },
+    {
+        "key": "Account",
+        "value": "account",
+        "description": "An entire account"
+    },
+    {
+        "key": "Department",
+        "value": "department",
+        "description": "All current members of a department"
+    }
+]

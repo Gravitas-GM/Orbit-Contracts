@@ -1,0 +1,11 @@
+[
+    {
+        "field": "content",
+        "kind": "string"
+    },
+    {
+        "field": "recipients",
+        "kind": "array",
+        "innerKind": "HubFeedEntryRecipientPayload"
+    }
+]

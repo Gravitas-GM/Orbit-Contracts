@@ -43,7 +43,11 @@
 			return $this->serializer->deserialize($response->getContent(), $innerClass . '[]', $this->responseFormat);
 		}
 
-		protected function buildOptions(?ProjectionInterface $projection = null, ?QueryInterface $query = null): array {
+		protected function buildOptions(
+			?ProjectionInterface $projection = null,
+			?QueryInterface $query = null,
+			mixed $payload = null,
+		): array {
 			$options = ['query' => []];
 
 			if ($projection)
@@ -51,6 +55,9 @@
 
 			if ($query)
 				$options['query']['q'] = json_encode($query->getQuery());
+
+			if ($payload !== null)
+				$options['json'] = $payload;
 
 			return $options;
 		}
